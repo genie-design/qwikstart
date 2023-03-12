@@ -1,6 +1,6 @@
-import { component$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
-import { Link } from '@builder.io/qwik-city';
+import { component$ } from "@builder.io/qwik";
+import type { DocumentHead } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (
@@ -9,6 +9,13 @@ export default component$(() => {
         Welcome to Qwik <span class="lightning">⚡️</span>
       </h1>
 
+      <blockquote text="2xl center slate-900" font="semibold" class="italic">
+        When you look
+        <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block before:content-[]">
+          <span class="relative text-white">annoyed</span>
+        </span>
+        all the time, people think that you're busy.
+      </blockquote>
       <ul>
         <li>
           Check out the <code>src/routes</code> directory to get started.
@@ -61,7 +68,10 @@ export default component$(() => {
               <code>npm run qwik add azure-swa</code>
             </td>
             <td>
-              <a href="https://learn.microsoft.com/azure/static-web-apps/overview" target="_blank">
+              <a
+                href="https://learn.microsoft.com/azure/static-web-apps/overview"
+                target="_blank"
+              >
                 Azure Static Web Apps
               </a>
             </td>
@@ -101,7 +111,10 @@ export default component$(() => {
               <code>npm run qwik add vercel-edge</code>
             </td>
             <td>
-              <a href="https://vercel.com/docs/concepts/get-started" target="_blank">
+              <a
+                href="https://vercel.com/docs/concepts/get-started"
+                target="_blank"
+              >
                 Vercel Edge Functions
               </a>
             </td>
@@ -149,11 +162,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Welcome to Qwik',
+  title: "Welcome to Qwik",
   meta: [
     {
-      name: 'description',
-      content: 'Qwik site description',
+      name: "description",
+      content: "Qwik site description",
     },
   ],
 };

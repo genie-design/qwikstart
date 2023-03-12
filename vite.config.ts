@@ -30,9 +30,8 @@ let darkRichBlue = Object.keys(richblue)
 
 export default defineConfig(() => {
   return {
-    plugins: [qwikCity(), qwikVite(), tsconfigPaths(),
-    UnoCSS({
-      rules: [["custom-rule", { color: "red" }]],
+    plugins: [    UnoCSS({
+      rules: [[/^content-\[(.*)\]$/, ([, content]) => ({ content: JSON.stringify(content) })],],
       shortcuts: {
         "custom-shortcut": "text-lg text-orange hover:text-teal",
       },
@@ -83,7 +82,8 @@ export default defineConfig(() => {
           richblue,
         },
       },
-    })],
+    }),
+    qwikCity(), qwikVite(), tsconfigPaths()],
     preview: {
       headers: {
         'Cache-Control': 'public, max-age=600',
