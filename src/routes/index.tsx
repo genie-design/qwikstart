@@ -1,177 +1,117 @@
-import { component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
-import { Link } from "@builder.io/qwik-city";
-import { Accordion } from "@genie-design/qwikbits-headless";
+import { component$ } from '@builder.io/qwik';
+import type { DocumentHead } from '@builder.io/qwik-city';
+
+import Counter from '~/components/starter/counter/counter';
+import Hero from '~/components/starter/hero/hero';
+import Infobox from '~/components/starter/infobox/infobox';
+import Starter from '~/components/starter/next-steps/next-steps';
 
 export default component$(() => {
   return (
-    <div>
-      <h1>
-        Welcome to Qwik <span class="lightning">⚡️</span>
-      </h1>
+    <>
+      <Hero />
 
-      <blockquote text="2xl center slate-900" font="semibold" class="italic">
-        When you look
-        <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block before:content-empty">
-          <span class="relative text-white">annoyed</span>
-        </span>
-        all the time, people think that you're busy.
-      </blockquote>
-      <Accordion>
-        <span q:slot="trigger">Open</span>
-        CONTENT
-      </Accordion>
-      <ul>
-        <li>
-          Check out the <code>src/routes</code> directory to get started.
-        </li>
-        <li>
-          Add integrations with <code>npm run qwik add</code>.
-        </li>
-        <li>
-          More info about development in <code>README.md</code>
-        </li>
-      </ul>
+      <div class="section bright">
+        <div class="container center">
+          <Starter />
+        </div>
+      </div>
 
-      <h2>Commands</h2>
+      <div class="section">
+        <div class="container center">
+          <h3>
+            You can <b>count</b> on me
+          </h3>
+          <Counter />
+        </div>
+      </div>
 
-      <table class="commands">
-        <tbody>
-          <tr>
-            <td>
-              <code>npm run dev</code>
-            </td>
-            <td>Start the dev server and watch for changes.</td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run preview</code>
-            </td>
-            <td>Production build and start preview server.</td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run build</code>
-            </td>
-            <td>Production build.</td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add</code>
-            </td>
-            <td>Select an integration to add.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="section">
+        <div class="container topics">
+          <Infobox>
+            <div q:slot="title" class="icon icon-cli">
+              CLI Commands
+            </div>
+            <>
+              <p>
+                <code>npm run dev</code>
+                <br />
+                Starts the development server and watches for changes
+              </p>
+              <p>
+                <code>npm run preview</code>
+                <br />
+                Creates production build and starts a server to preview it
+              </p>
+              <p>
+                <code>npm run build</code>
+                <br />
+                Creates production build
+              </p>
+              <p>
+                <code>npm run qwik add</code>
+                <br />
+                Runs the qwik CLI to add integrations
+              </p>
+            </>
+          </Infobox>
 
-      <h2>Add Integrations</h2>
+          <div>
+            <Infobox>
+              <div q:slot="title" class="icon icon-apps">
+                Example Apps
+              </div>
+              <p>
+                Have a look at the <a href="/demo/flower">Flower App</a> or the{' '}
+                <a href="/demo/todolist">Todo App</a>.
+              </p>
+            </Infobox>
 
-      <table class="commands">
-        <tbody>
-          <tr>
-            <td>
-              <code>npm run qwik add azure-swa</code>
-            </td>
-            <td>
-              <a
-                href="https://learn.microsoft.com/azure/static-web-apps/overview"
-                target="_blank"
-              >
-                Azure Static Web Apps
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add cloudflare-pages</code>
-            </td>
-            <td>
-              <a href="https://developers.cloudflare.com/pages" target="_blank">
-                Cloudflare Pages Server
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add express</code>
-            </td>
-            <td>
-              <a href="https://expressjs.com/" target="_blank">
-                Nodejs Express Server
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add netlify-edge</code>
-            </td>
-            <td>
-              <a href="https://docs.netlify.com/" target="_blank">
-                Netlify Edge Functions
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add vercel-edge</code>
-            </td>
-            <td>
-              <a
-                href="https://vercel.com/docs/concepts/get-started"
-                target="_blank"
-              >
-                Vercel Edge Functions
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>Community</h2>
-
-      <ul>
-        <li>
-          <span>Questions or just want to say hi? </span>
-          <a href="https://qwik.builder.io/chat" target="_blank">
-            Chat on discord!
-          </a>
-        </li>
-        <li>
-          <span>Follow </span>
-          <a href="https://twitter.com/QwikDev" target="_blank">
-            @QwikDev
-          </a>
-          <span> on Twitter</span>
-        </li>
-        <li>
-          <span>Open issues and contribute on </span>
-          <a href="https://github.com/BuilderIO/qwik" target="_blank">
-            GitHub
-          </a>
-        </li>
-        <li>
-          <span>Watch </span>
-          <a href="https://qwik.builder.io/media/" target="_blank">
-            Presentations, Podcasts, Videos, etc.
-          </a>
-        </li>
-      </ul>
-      <Link class="mindblow" href="/flower/">
-        Blow my mind 🤯
-      </Link>
-      <Link class="todolist" href="/todolist/">
-        TODO demo 📝
-      </Link>
-    </div>
+            <Infobox>
+              <div q:slot="title" class="icon icon-community">
+                Community
+              </div>
+              <ul>
+                <li>
+                  <span>Questions or just want to say hi? </span>
+                  <a href="https://qwik.builder.io/chat" target="_blank">
+                    Chat on discord!
+                  </a>
+                </li>
+                <li>
+                  <span>Follow </span>
+                  <a href="https://twitter.com/QwikDev" target="_blank">
+                    @QwikDev
+                  </a>
+                  <span> on Twitter</span>
+                </li>
+                <li>
+                  <span>Open issues and contribute on </span>
+                  <a href="https://github.com/BuilderIO/qwik" target="_blank">
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <span>Watch </span>
+                  <a href="https://qwik.builder.io/media/" target="_blank">
+                    Presentations, Podcasts, Videos, etc.
+                  </a>
+                </li>
+              </ul>
+            </Infobox>
+          </div>
+        </div>
+      </div>
+    </>
   );
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: 'Welcome to Qwik',
   meta: [
     {
-      name: "description",
-      content: "Qwik site description",
+      name: 'description',
+      content: 'Qwik site description',
     },
   ],
 };

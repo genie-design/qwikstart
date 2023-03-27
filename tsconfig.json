@@ -11,7 +11,7 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "incremental": true,
     "isolatedModules": true,
     "outDir": "tmp",
@@ -22,5 +22,5 @@
     }
   },
   "files": ["./.eslintrc.cjs"],
-  "include": ["src", "vite.config.ts", ".eslintrc.cjs"]
+  "include": ["src"]
 }

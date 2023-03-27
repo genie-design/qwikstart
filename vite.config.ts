@@ -1,15 +1,14 @@
 import { defineConfig } from 'vite';
+import UnoCSS from 'unocss/vite';
 import { qwikVite } from '@builder.io/qwik/optimizer';
 import { qwikCity } from '@builder.io/qwik-city/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import UnoCSS from "unocss/vite";
+import { presetForms } from "@julr/unocss-preset-forms";
 import { presetAttributify, presetIcons } from "unocss";
-import presetWind from "@unocss/preset-wind";
 import transformerDirectives from "@unocss/transformer-directives";
 import presetWebFonts from "@unocss/preset-web-fonts";
-import { presetForms } from "@julr/unocss-preset-forms";
+import presetWind from "@unocss/preset-wind";
 import presetTheme from "unocss-preset-theme";
-
 const richblue: Record<number, string> = {
   100: "#7da6ff",
   200: "#598dff",
@@ -30,7 +29,8 @@ let darkRichBlue = Object.keys(richblue)
 
 export default defineConfig(() => {
   return {
-    plugins: [    UnoCSS({
+        plugins: [    
+      UnoCSS({
       rules: [[/^content-\[(.*)\]$/, ([, content]) => ({ content: JSON.stringify(content) })],],
       shortcuts: {
         "custom-shortcut": "text-lg text-orange hover:text-teal",
@@ -46,26 +46,6 @@ export default defineConfig(() => {
           scale: 1.0,
           cdn: "https://esm.sh/",
         }),
-        presetWebFonts({
-          provider: "google", // default provider
-          fonts: {
-            // these will extend the default theme
-            sans: [
-              "Overpass",
-              {
-                name: "sans-serif",
-                provider: "none",
-              },
-            ],
-            mono: [
-              "JetBrains Mono",
-              {
-                name: "monospace",
-                provider: "none",
-              },
-            ],
-          },
-        }),
         presetTheme({
           theme: {
             dark: {
@@ -75,6 +55,26 @@ export default defineConfig(() => {
             },
           },
         }),
+        presetWebFonts({
+          // provider: "google", // default provider
+          // fonts: {
+          //   // these will extend the default theme
+          //   sans: [
+          //     "Overpass",
+          //     {
+          //       name: "sans-serif",
+          //       provider: "none",
+          //     },
+          //   ],
+          //   mono: [
+          //     "JetBrains Mono",
+          //     {
+          //       name: "monospace",
+          //       provider: "none",
+          //     },
+          //   ],
+          // },
+        }),
       ],
 
       theme: {
@@ -83,6 +83,7 @@ export default defineConfig(() => {
         },
       },
     }),
+  
     qwikCity(), qwikVite(), tsconfigPaths()],
     preview: {
       headers: {

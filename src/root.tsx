@@ -5,7 +5,7 @@ import {
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
-
+import "@unocss/reset/tailwind.css";
 import "./global.css";
 import "uno.css";
 

@@ -9,8 +9,11 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.server": "vite build -c adapters/cloudflare-pages/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+    "deploy-experimental-local": "wrangler pages dev ./dist --experimental-local",
+    "deploy-local": "wrangler pages dev ./dist --local",
+    "deploy": "wrangler pages dev ./dist",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
@@ -22,12 +25,10 @@
   },
   "devDependencies": {
     "@builder.io/qwik": "0.24.0",
-    "@builder.io/qwik-city": "0.7.0",
-    "@iconify-json/fe": "^1.1.6",
-    "@julr/unocss-preset-forms": "^0.0.3",
+    "@builder.io/qwik-city": "~0.7.0",
+    "@julr/unocss-preset-forms": "^0.0.5",
     "@types/eslint": "8.21.3",
-    "@types/node": "^18.15.10",
-    "@types/node-fetch": "latest",
+    "@types/node": "^18.15.3",
     "@typescript-eslint/eslint-plugin": "5.56.0",
     "@typescript-eslint/parser": "5.56.0",
     "@unocss/preset-attributify": "^0.50.6",
@@ -36,21 +37,18 @@
     "@unocss/preset-wind": "^0.50.6",
     "@unocss/reset": "^0.50.6",
     "@unocss/transformer-directives": "^0.50.6",
-    "@vanilla-extract/css": "^1.10.0",
     "eslint": "8.36.0",
     "eslint-plugin-qwik": "0.24.0",
-    "node-fetch": "3.3.1",
-    "prettier": "2.8.7",
-    "styled-vanilla-extract": "^0.5.4",
+    "prettier": "2.8.6",
     "typescript": "5.0.2",
     "undici": "5.21.0",
     "unocss": "^0.50.6",
-    "unocss-preset-theme": "^0.5.0",
+    "unocss-preset-theme": "^0.5.2",
     "vite": "4.2.1",
-    "vite-tsconfig-paths": "4.0.7"
+    "vite-tsconfig-paths": "3.5.0",
+    "wrangler": "latest"
   },
   "dependencies": {
-    "@genie-design/qwikbits-headless": "^0.1.0",
-    "i": "^0.3.7"
+    "@qwikbits/headless-ui": "^0.1.3"
   }
 }
