@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Link } from "@builder.io/qwik-city";
+import { Accordion } from "@genie-design/qwikbits-headless";
 
 export default component$(() => {
   return (
@@ -16,6 +17,10 @@ export default component$(() => {
         </span>
         all the time, people think that you're busy.
       </blockquote>
+      <Accordion>
+        <span q:slot="trigger">Open</span>
+        CONTENT
+      </Accordion>
       <ul>
         <li>
           Check out the <code>src/routes</code> directory to get started.
